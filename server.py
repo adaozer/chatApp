@@ -34,7 +34,7 @@ activeClients = {}
                 
 #                 messageFinal = " ".join(splitMessage[2:])
 #                 sendUni = username + ": " + messageFinal
-#                 unicast(receiverSocket, sendUni)
+#                 receiverSocket.sendall(sendUni.encode("utf-8"))
 
 #             else:
 #                 sendBroad = username + ": " + message
@@ -71,6 +71,13 @@ def broadcast(client, message):
             clients.sendall(message.encode('utf-8'))
 
 
+def clientLeave(client):
+    username = activeClients[client]
+    broadcast(client, f"{username} has left!")
+    activeClients.pop(client)
+    client.close()
+
+
 def clientAdd(client, address):
     print(f"Connection from {address}")
     try:
@@ -93,11 +100,20 @@ def clientAdd(client, address):
             if "/msg" in message:
                 unicast(username, message)
 
+            elif message == "/leave":
+                clientLeave(client)
+
             else:
                 sendBroad = username + ": " + message
                 broadcast(client, sendBroad)
 
-        except: 
+        except KeyboardInterrupt:
+            clientLeave(client) 
+        
+        except OSError:
+            pass
+
+        except:
             print("Message failed to send")
 
 def main():

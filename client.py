@@ -7,12 +7,6 @@ username = sys.argv[1]
 host = sys.argv[2]
 port = int(sys.argv[3])
 
-def sendMessage(client):
-    
-    while True:
-        message = input("Please enter your message: ")
-        client.sendall(message.encode('utf-8'))
-
 def receiveMessage(client):
 
     while True:
@@ -33,7 +27,16 @@ def clientStart():
     print(welcome)
 
     threading.Thread(target=receiveMessage, args=(clientSocket, )).start()
-    sendMessage(clientSocket)
+
+    while True:
+        try:
+            message = input()
+            clientSocket.sendall(message.encode('utf-8'))
+
+        except KeyboardInterrupt:
+            clientSocket.sendall("/leave".encode('utf-8'))
+            clientSocket.close()
+            sys.exit(0)
 
 
 if __name__ == "__main__":
