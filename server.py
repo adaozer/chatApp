@@ -102,6 +102,7 @@ def clientAdd(client, address):
 
             elif message == "/leave":
                 clientLeave(client)
+                break
 
             else:
                 sendBroad = username + ": " + message
@@ -109,12 +110,10 @@ def clientAdd(client, address):
 
         except KeyboardInterrupt:
             clientLeave(client) 
-        
-        except OSError:
-            pass
+            break
 
-        except:
-            print("Message failed to send")
+        #except:
+         #   print("Message failed to send")
 
 def main():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
