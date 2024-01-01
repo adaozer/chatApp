@@ -5,7 +5,7 @@ import logging
 
 port = int(sys.argv[1])
 activeClients = {}
-logging.basicConfig(filename='server.log', level=logging.INFO)
+logging.basicConfig(filename='server.log', filemode='a+', level=logging.INFO)
 
 # https://www.youtube.com/watch?v=Cqoqd31BbwI&t=1155s&ab_channel=AllAboutPython
 # https://docs.python.org/3/library/socket.html

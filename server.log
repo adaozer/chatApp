@@ -1,0 +1,18 @@
+INFO:root:Server started at 8080
+INFO:root:Server broadcasted to the clients that ahmet joined the server.
+INFO:root:ahmet joined the server from port ('127.0.0.1', 53606)
+INFO:root:Server broadcasted to the clients that ada joined the server.
+INFO:root:ada joined the server from port ('127.0.0.1', 53608)
+INFO:root:ada broadcasted a message with the content: SELAM AHMET
+INFO:root:ada sent a private message to ada with the content: selam ada
+INFO:root:Server broadcasted to the clients that ada left the server.
+INFO:root:ada left the server.
+INFO:root:Server broadcasted to the clients that ahmet left the server.
+INFO:root:ahmet left the server.
+INFO:root:Server started at 8080
+INFO:root:Server broadcasted to the clients that ada joined the server.
+INFO:root:ada joined the server from port ('127.0.0.1', 53613)
+INFO:root:Server broadcasted to the clients that ada left the server.
+ERROR:root:ada has disconnected unexpectedly.
+INFO:root:Server started at 8080
+CRITICAL:root:Server unable to be bound to 8080
