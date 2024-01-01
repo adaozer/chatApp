@@ -8,40 +8,8 @@ activeClients = {}
 # https://www.youtube.com/watch?v=Cqoqd31BbwI&t=1155s&ab_channel=AllAboutPython
 # https://docs.python.org/3/library/socket.html
 # https://python.plainenglish.io/building-a-messaging-app-with-python-sockets-and-threads-1c110fc1c8c8
+# https://python.plainenglish.io/building-a-messaging-app-with-python-sockets-and-threads-continue-b7b344ff6e76
 # https://www.geeksforgeeks.org/simple-chat-room-using-python/
-
-# def receiveMessage(client):
-    
-#     while True:
-#         try:
-#             message = client.recv(2048).decode("utf-8")
-#             username = activeClients[client]
-
-#             if "/msg" in message:
-#                 splitMessage = message.split()
-#                 receiver = splitMessage[1]
-                
-#                 # https://www.geeksforgeeks.org/python-get-key-from-value-in-dictionary/
-
-#                 dictKeys = list(activeClients.keys())
-#                 dictValues = list(activeClients.values())
-#                 pos = dictValues.index(receiver)
-#                 receiverSocket = dictKeys[pos]
-
-#                 #for socket, user in activeClients.items():
-#                  #   if user == receiver:
-#                   #      receiverSocket = socket
-                
-#                 messageFinal = " ".join(splitMessage[2:])
-#                 sendUni = username + ": " + messageFinal
-#                 receiverSocket.sendall(sendUni.encode("utf-8"))
-
-#             else:
-#                 sendBroad = username + ": " + message
-#                 broadcast(client, sendBroad)
-
-#         except KeyboardInterrupt: 
-#             print("Message failed to send")
 
 def unicast(username, message):
 
@@ -54,10 +22,6 @@ def unicast(username, message):
     dictValues = list(activeClients.values())
     pos = dictValues.index(receiver)
     receiverSocket = dictKeys[pos]
-
-    #for socket, user in activeClients.items():
-    #   if user == receiver:
-    #      receiverSocket = socket
                     
     messageFinal = " ".join(splitMessage[2:])
     sendUni = username + ": " + messageFinal
@@ -90,8 +54,6 @@ def clientAdd(client, address):
     except:
         print("Client could not connect!")
 
-    #threading.Thread(target=receiveMessage, args=(client, )).start()
-
     while True:
         try:
             message = client.recv(2048).decode("utf-8")
@@ -112,8 +74,12 @@ def clientAdd(client, address):
             clientLeave(client) 
             break
 
-        #except:
-         #   print("Message failed to send")
+        except ConnectionResetError:
+            clientLeave(client) 
+            break
+
+        except:
+            print("Message failed to send.")
 
 def main():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
