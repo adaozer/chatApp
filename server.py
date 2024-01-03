@@ -87,11 +87,11 @@ def clientAdd(client, address):
             logging.error(f"{username} has disconnected unexpectedly.")
             break
 
-       # except:
-        #    errorMessage = "Message failed to send."
-         #   print(errorMessage)
-          #  logging.error(f"A message failed to send from {username}")
-           # client.sendall(errorMessage.encode('utf-8'))
+        except:
+            errorMessage = "Message failed to send."
+            print(errorMessage)
+            logging.error(f"A message failed to send from {username}")
+            client.sendall(errorMessage.encode('utf-8'))
 
 def main():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
