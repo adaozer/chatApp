@@ -1,0 +1,76 @@
+INFO:root:Server started at 8080
+INFO:root:Server started at 8080
+INFO:root:Ada joined from the port ('127.0.0.1', 54244)
+INFO:root:Server broadcasted to the clients that Ada joined the server.
+INFO:root:Ada broadcasted a message with the content: selam
+INFO:root:Server broadcasted to the clients that Ada left the server.
+INFO:root:Ada left the server.
+INFO:root:Ada joined from the port ('127.0.0.1', 54312)
+INFO:root:Server broadcasted to the clients that Ada joined the server.
+INFO:root:Ada broadcasted a message with the content: ada
+INFO:root:Server broadcasted to the clients that Ada left the server.
+INFO:root:Ada left the server.
+INFO:root:The server was closed manually with keyboard interrupt.
+INFO:root:Server started at 8080
+INFO:root:Ada joined from the port ('127.0.0.1', 54375)
+INFO:root:Server broadcasted to the clients that Ada joined the server.
+INFO:root:Mete joined from the port ('127.0.0.1', 54381)
+INFO:root:Server broadcasted to the clients that Mete joined the server.
+INFO:root:Mete broadcasted a message with the content: selam ada
+INFO:root:babu\u015f joined from the port ('127.0.0.1', 54388)
+INFO:root:Server broadcasted to the clients that babu\u015f joined the server.
+INFO:root:babu\u015f broadcasted a message with the content: selam beyler
+INFO:root:Mete sent a private message to babu\u015f with the content: anan
+INFO:root:Mete sent a private message to babu\u015f with the content: anan
+INFO:root:Mete broadcasted a message with the content: babu\u015f baband\u0131r
+INFO:root:Server broadcasted to the clients that Ada left the server.
+INFO:root:Ada left the server.
+INFO:root:Server broadcasted to the clients that Mete left the server.
+INFO:root:Mete left the server.
+INFO:root:Server started at 8080
+INFO:root:babu\u015f joined from the port ('127.0.0.1', 54607)
+INFO:root:Server broadcasted to the clients that babu\u015f joined the server.
+INFO:root:Server broadcasted to the clients that babu\u015f left the server.
+INFO:root:babu\u015f left the server.
+INFO:root:babu\u015f joined from the port ('127.0.0.1', 54661)
+INFO:root:Server broadcasted to the clients that babu\u015f joined the server.
+INFO:root:Server broadcasted to the clients that babu\u015f left the server.
+INFO:root:babu\u015f left the server.
+INFO:root:babu\u015f joined from the port ('127.0.0.1', 54737)
+INFO:root:Server broadcasted to the clients that babu\u015f joined the server.
+INFO:root:Server broadcasted to the clients that babu\u015f left the server.
+INFO:root:babu\u015f left the server.
+INFO:root:babu\u015f joined from the port ('127.0.0.1', 54764)
+INFO:root:Server broadcasted to the clients that babu\u015f joined the server.
+INFO:root:Server broadcasted to the clients that babu\u015f left the server.
+INFO:root:babu\u015f left the server.
+INFO:root:babu\u015f joined from the port ('127.0.0.1', 54775)
+INFO:root:Server broadcasted to the clients that babu\u015f joined the server.
+INFO:root:Server broadcasted to the clients that babu\u015f left the server.
+INFO:root:babu\u015f left the server.
+INFO:root:babu\u015f joined from the port ('127.0.0.1', 54784)
+INFO:root:Server broadcasted to the clients that babu\u015f joined the server.
+INFO:root:Server broadcasted to the clients that babu\u015f left the server.
+INFO:root:babu\u015f left the server.
+INFO:root:Mete joined from the port ('127.0.0.1', 54790)
+INFO:root:Server broadcasted to the clients that Mete joined the server.
+INFO:root:Server broadcasted to the clients that Mete left the server.
+INFO:root:Mete left the server.
+INFO:root:Server started at 8080
+INFO:root:Mete joined from the port ('127.0.0.1', 54913)
+INFO:root:Server broadcasted to the clients that Mete joined the server.
+INFO:root:babu\u015f joined from the port ('127.0.0.1', 54916)
+INFO:root:Server broadcasted to the clients that babu\u015f joined the server.
+INFO:root:Server broadcasted to the clients that Mete left the server.
+INFO:root:Mete left the server.
+INFO:root:Mete joined from the port ('127.0.0.1', 55034)
+INFO:root:Server broadcasted to the clients that Mete joined the server.
+INFO:root:Server broadcasted to the clients that Mete left the server.
+INFO:root:Mete left the server.
+INFO:root:Server started at 8080
+INFO:root:Mete joined from the port ('127.0.0.1', 55085)
+INFO:root:Server broadcasted to the clients that Mete joined the server.
+INFO:root:babu\u015f joined from the port ('127.0.0.1', 55087)
+INFO:root:Server broadcasted to the clients that babu\u015f joined the server.
+INFO:root:Server broadcasted to the clients that babu\u015f left the server.
+INFO:root:babu\u015f left the server.
