@@ -7,19 +7,12 @@ port = int(sys.argv[1]) # Get the desired port from the arguements.
 activeClients = {} # Initialize active clients dictionary for storing socket and username information.
 logging.basicConfig(filename='server.log', filemode='a+', level=logging.INFO) # Set up server.log file.
 
-# https://www.youtube.com/watch?v=Cqoqd31BbwI&t=1155s&ab_channel=AllAboutPython
-# https://docs.python.org/3/library/socket.html
-# https://python.plainenglish.io/building-a-messaging-app-with-python-sockets-and-threads-1c110fc1c8c8
-# https://python.plainenglish.io/building-a-messaging-app-with-python-sockets-and-threads-continue-b7b344ff6e76
-# https://www.geeksforgeeks.org/simple-chat-room-using-python/
-# https://docs.python.org/3/howto/logging.html
-# https://docs.python.org/3/library/logging.html
-
 def unicast(username, message):
 
     splitMessage = message.split()
     receiver = splitMessage[1] # Access username of the recepient of the message.
-    # https://www.geeksforgeeks.org/python-get-key-from-value-in-dictionary/
+
+# GeeksforGeeks. (2023, May 4). Python: Get key from value in dictionary. https://www.geeksforgeeks.org/python-get-key-from-value-in-dictionary/ 
 
     dictKeys = list(activeClients.keys())
     dictValues = list(activeClients.values())
@@ -42,7 +35,6 @@ def clientLeave(client):
     broadcast(client, f"{username} has left!") # Broacast to all other clients that the user left.
     logging.info(f"Server broadcasted to the clients that {username} left the server.")
     activeClients.pop(client) # Remove the client from the active clients dictionary.
-    #client.close() # Close the client's port to finish the client leaving process.
 
 
 def clientAdd(client, address):
@@ -99,6 +91,11 @@ def main():
             s.bind(("", port)) # Initialize server at the inputted port.
             print(f"Server has started at {port}") # Print that the server has started and log it in the server.log file.
             logging.info(f"Server started at {port}")
+        
+        except KeyboardInterrupt:
+            s.close()
+            logging.info("Server closed.")
+
         except:
             print(f"Server unable to be bound to {port}") # Handle errors by printing the necessary information and logging it.
             logging.critical(f"Server unable to be bound to {port}")

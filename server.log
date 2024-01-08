@@ -1,0 +1,12 @@
+INFO:root:Server started at 8080
+INFO:root:Server was closed.
+INFO:root:Server started at 8080
+INFO:root:Server was closed.
+INFO:root:Server started at 8080
+INFO:root:Server was closed.
+INFO:root:Server started at 8080
+INFO:root:ada joined from the port ('127.0.0.1', 55113)
+INFO:root:Server broadcasted to the clients that ada joined the server.
+INFO:root:adarrrrrr joined from the port ('127.0.0.1', 55116)
+INFO:root:Server broadcasted to the clients that adarrrrrr joined the server.
+INFO:root:Server was closed.
