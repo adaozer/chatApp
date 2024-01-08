@@ -42,7 +42,7 @@ def clientLeave(client):
     broadcast(client, f"{username} has left!") # Broacast to all other clients that the user left.
     logging.info(f"Server broadcasted to the clients that {username} left the server.")
     activeClients.pop(client) # Remove the client from the active clients dictionary.
-    #client.close() # Close the client's port to finish the client leaving process.
+    client.close() # Close the client's port to finish the client leaving process.
 
 
 def clientAdd(client, address):

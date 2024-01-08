@@ -1,3 +1,14 @@
+**Computer Science Year 2 Networks and Systems Project**
+
+------------------------------
+
+Introduction:
+
+This is the cmd chat application project for the Networks and Systems module. This readme.txt file includes information 
+about how to run the server and use the features.
+
+------------------------------
+
 Files included:
 
 - server.py
@@ -29,3 +40,7 @@ To leave the server, clients can either input "/leave" in the cmd window or simp
 ctrl+c.
 
 Checking the server.log file will provide a log of all activities that have happened in the server.
+
+------------------------------
+
+References:
