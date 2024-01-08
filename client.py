@@ -13,7 +13,7 @@ def receiveMessage(client):
         try:
             message = client.recv(2048).decode('utf-8') # Constantly check for data coming from the server.
             print(message)
-        except ConnectionAbortedError:
+        except ConnectionAbortedError and ConnectionResetError and OSError:
             print("Connection aborted.")
             client.close()
             break
@@ -26,9 +26,13 @@ def clientStart():
         clientSocket.sendall(username.encode("utf-8")) # Connect to the server address and send the username data to the server.
     except:
         print("Failed to connect to the server!") # Handle exceptions.
-
-    welcome = clientSocket.recv(2048).decode("utf-8")
-    print(welcome) # Receive welcome message from the server.
+    
+    try:
+        welcome = clientSocket.recv(2048).decode("utf-8")
+        print(welcome) # Receive welcome message from the server.
+    except ConnectionResetError:
+        print("Couldn't connect to server!")
+        clientSocket.close()
 
     threading.Thread(target=receiveMessage, args=(clientSocket, )).start() # Start a thread waiting for data from the server for each client.
 
@@ -37,13 +41,16 @@ def clientStart():
             message = input()
             clientSocket.sendall(message.encode('utf-8')) # Constantly available messaging feature, check if the client is sending any messages.
 
-        # https://stackoverflow.com/questions/44387712/python-sockets-how-to-shut-down-the-server
-            
+# Hannu. (2017, June 6). Python sockets - how to shut down the server?. Stack Overflow. https://stackoverflow.com/questions/44387712/python-sockets-how-to-shut-down-the-server             
+      
         except KeyboardInterrupt:
             clientSocket.sendall("/leave".encode('utf-8'))
             clientSocket.close()
             sys.exit(0) # When the client uses keyboard interrupt,  
-
+        except OSError:
+            print("Server is closed, message couldn't send.")
+            clientSocket.close()
+            break
 
 if __name__ == "__main__":
     clientStart()

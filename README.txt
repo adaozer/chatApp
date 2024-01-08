@@ -37,10 +37,21 @@ To unicast a message to a specific user, simply put "/msg [username] [message]" 
 to send.
 
 To leave the server, clients can either input "/leave" in the cmd window or simply run keyboard interrupt
-ctrl+c.
+ctrl+c. To close the server, simply run keyboard interrupt ctrl+c. When another client tries to join the server, 
+they will be denied and won't be able to send any messages. This will also be the case for existing clients.
 
 Checking the server.log file will provide a log of all activities that have happened in the server.
 
 ------------------------------
 
 References:
+
+- AllAboutPython. (2021, October 10). How to create a real time chat app in python using socket programming | part 2. YouTube. https://www.youtube.com/watch?v=Cqoqd31BbwI&t=1155s&ab_channel=AllAboutPython 
+- GeeksForGeeks. (2022, February 19). Simple chat room using Python. GeeksforGeeks. https://www.geeksforgeeks.org/simple-chat-room-using-python/ 
+- GeeksforGeeks. (2023, May 4). Python: Get key from value in dictionary. https://www.geeksforgeeks.org/python-get-key-from-value-in-dictionary/ 
+- Hannu. (2017, June 6). Python sockets - how to shut down the server?. Stack Overflow. https://stackoverflow.com/questions/44387712/python-sockets-how-to-shut-down-the-server 
+- Logging - logging facility for Python. Python documentation. (n.d.-a). https://docs.python.org/3/library/logging.html 
+- Logging howto. Python documentation. (n.d.-b). https://docs.python.org/3/howto/logging.html 
+- Raychev, J. P. (2021a, February 19). Building a messaging app with python sockets and threads. Medium. https://python.plainenglish.io/building-a-messaging-app-with-python-sockets-and-threads-continue-b7b344ff6e76 
+- Raychev, J. P. (2021b, November 17). Building a messaging app with python sockets and threads. Medium. https://python.plainenglish.io/building-a-messaging-app-with-python-sockets-and-threads-1c110fc1c8c8 
+- Socket - low-level networking interface. Python documentation. (n.d.-c). https://docs.python.org/3/library/socket.html 
