@@ -106,8 +106,14 @@ def main():
         s.listen() # Listen for connections.
 
         while True:
+            try:
                 client, address = s.accept() 
                 threading.Thread(target=clientAdd, args=(client, address, )).start() # Accept connections and create a thread for each client.
+            except KeyboardInterrupt:
+                print("Server closed.")
+                s.close()
+                logging.info("Server was closed.") # Close the server and log it on keyboard interrupt.
+                break
 
 if __name__ == "__main__":
     main()

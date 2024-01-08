@@ -26,6 +26,6 @@ To unicast a message to a specific user, simply put "/msg [username] [message]" 
 to send.
 
 To leave the server, clients can either input "/leave" in the cmd window or simply run keyboard interrupt
-ctrl+c.
+ctrl+c. To close the server, simply run keyboard interrupt ctrl+c twice.
 
 Checking the server.log file will provide a log of all activities that have happened in the server.
