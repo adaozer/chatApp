@@ -1,11 +1,14 @@
 import socket
 import threading
 import sys
+import os
 
 
 username = sys.argv[1]
 host = sys.argv[2]
 port = int(sys.argv[3]) # Get the username, host, port information from the arguements.
+currentDir = os.getcwd()
+downloadDir = f"{currentDir}/downloads"
 
 def receiveMessage(client):
 
@@ -35,10 +38,11 @@ def clientStart():
         clientSocket.close()
 
     threading.Thread(target=receiveMessage, args=(clientSocket, )).start() # Start a thread waiting for data from the server for each client.
+    # https://stackoverflow.com/questions/29110620/how-to-download-file-from-local-server-in-python
 
     while True:
         try:
-            message = input()
+            message = input()   
             clientSocket.sendall(message.encode('utf-8')) # Constantly available messaging feature, check if the client is sending any messages.
 
 # Hannu. (2017, June 6). Python sockets - how to shut down the server?. Stack Overflow. https://stackoverflow.com/questions/44387712/python-sockets-how-to-shut-down-the-server             
@@ -47,10 +51,10 @@ def clientStart():
             clientSocket.sendall("/leave".encode('utf-8'))
             clientSocket.close()
             sys.exit(0) # When the client uses keyboard interrupt,  
-        except OSError:
-            print("Server is closed, message couldn't send.")
-            clientSocket.close()
-            break
+        #except OSError:
+         #   print("Server is closed, message couldn't send.")
+          #  clientSocket.close()
+           # break
 
 if __name__ == "__main__":
     clientStart()

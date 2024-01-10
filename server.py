@@ -2,6 +2,7 @@ import socket
 import threading
 import sys
 import logging
+import os
 
 port = int(sys.argv[1]) # Get the desired port from the arguements.
 activeClients = {} # Initialize active clients dictionary for storing socket and username information.
@@ -36,6 +37,19 @@ def clientLeave(client):
     logging.info(f"Server broadcasted to the clients that {username} left the server.")
     activeClients.pop(client) # Remove the client from the active clients dictionary.
 
+def displayFiles(client):
+    items = os.listdir("downloads") # Get the list of items in the directory downloads.
+    file_list = ''
+    for i in items:
+        file_list += f"-{i}\n" # Put all items in a string and send it to the client.
+
+    client.sendall(file_list.encode())
+
+def downloadFile(message, username, client):
+    splitMessage = message.split()
+    fileForDownload = splitMessage[1]
+    os.mkdir(username) # Create a directory for the client's downloaded files.
+    
 
 def clientAdd(client, address):
     print(f"Connection from {address}")
@@ -58,12 +72,14 @@ def clientAdd(client, address):
 
             if "/msg" in message: # Check if the message is unicast or broadcast.
                 unicast(username, message)
-
+            elif message == "/files": # Check if the message is asking for files.
+                displayFiles(client)
             elif message == "/leave": # Check if the message is a leave command.
                 clientLeave(client)
                 logging.info(f"{username} left the server.")
                 break
-
+            elif "/download" in message: # Check if the message is asking for a download.
+                downloadFile(message, username, client)
             else:
                 sendBroad = username + ": " + message
                 broadcast(client, sendBroad)
@@ -87,14 +103,11 @@ def clientAdd(client, address):
 
 def main():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        #os.mkdir("downloads") # Initialize downloads folder
         try:
             s.bind(("", port)) # Initialize server at the inputted port.
             print(f"Server has started at {port}") # Print that the server has started and log it in the server.log file.
             logging.info(f"Server started at {port}")
-        
-        except KeyboardInterrupt:
-            s.close()
-            logging.info("Server closed.")
 
         except:
             print(f"Server unable to be bound to {port}") # Handle errors by printing the necessary information and logging it.
@@ -112,5 +125,6 @@ def main():
                 logging.info("Server was closed.") # Close the server and log it on keyboard interrupt.
                 break
 
+        s.close()
 if __name__ == "__main__":
     main()

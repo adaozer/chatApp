@@ -1,14 +1,3 @@
-**Computer Science Year 2 Networks and Systems Project**
-
-------------------------------
-
-Introduction:
-
-This is the cmd chat application project for the Networks and Systems module. This readme.txt file includes information 
-about how to run the server and use the features.
-
-------------------------------
-
 Files included:
 
 - server.py
@@ -35,6 +24,9 @@ Writing in the cmd window and pressing enter will broadcast a message to all act
 To unicast a message to a specific user, simply put "/msg [username] [message]" in the cmd window where
 [username] is the username of the client you want to unicast to, and [message] is the message you want
 to send.
+
+To view the files in the downloads folder, type "/files". Then, if you would like to download a file,
+simply input "/download [filename]" where [filename] is the name of the file you want to download.
 
 To leave the server, clients can either input "/leave" in the cmd window or simply run keyboard interrupt
 ctrl+c. To close the server, simply run keyboard interrupt ctrl+c. When another client tries to join the server, 
