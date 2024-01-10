@@ -61,8 +61,9 @@ def downloadFile(message, username, client):
 
 # phihag. (2012, January 19). How do I check if a directory exists in python?. Stack Overflow. https://stackoverflow.com/questions/8933237/how-do-i-check-if-a-directory-exists-in-python 
 # Vinod Sharma. (2015, March 18). How to download file from local server in Python. Stack Overflow. https://stackoverflow.com/questions/29110620/how-to-download-file-from-local-server-in-python 
- 
+    
     if os.path.exists(filePath): # Check so the progam doesn't break.
+        del activeClients[client]
         client.sendall(f"**start** {fileForDownload}".encode('utf-8')) # Indicate that the file transfer is starting
         with open(filePath, 'rb') as file: # Open file
             data = file.read(1024) # Read the data inside the file and send all to the client
@@ -71,6 +72,7 @@ def downloadFile(message, username, client):
                 data = file.read(1024)
         client.sendall("**end**".encode('utf-8')) # Indicate that the transfer has ended
         logging.info(f"{username} downloaded a file: {fileForDownload}")
+        activeClients[client] = username
     else:
         client.sendall("That file doesn't exist!".encode('utf-8')) # Error handling
         logging.error(f"{username} tried to download a file that didn't exist!")

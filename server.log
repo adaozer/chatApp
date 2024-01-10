@@ -7,3 +7,16 @@ INFO:root:ada viewed the downloadable files.
 INFO:root:ada broadcasted a message with the content: damn
 INFO:root:Server broadcasted to the clients that ada left the server.
 INFO:root:ada left the server.
+INFO:root:Server started at 8080
+INFO:root:ada joined from the port ('127.0.0.1', 55717)
+INFO:root:Server broadcasted to the clients that ada joined the server.
+INFO:root:ersan joined from the port ('127.0.0.1', 55723)
+INFO:root:Server broadcasted to the clients that ersan joined the server.
+INFO:root:ersan downloaded a file: qtlf48_report.pdf
+INFO:root:ersan broadcasted a message with the content: selam aga
+INFO:root:ada broadcasted a message with the content: selam ersannn
+INFO:root:ersan sent a private message to ada with the content: baban
+INFO:root:Server broadcasted to the clients that ada left the server.
+ERROR:root:ada has disconnected unexpectedly.
+INFO:root:Server broadcasted to the clients that ersan left the server.
+ERROR:root:ersan has disconnected unexpectedly.
