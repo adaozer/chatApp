@@ -7,6 +7,8 @@ import os
 port = int(sys.argv[1]) # Get the desired port from the arguements.
 activeClients = {} # Initialize active clients dictionary for storing socket and username information.
 logging.basicConfig(filename='server.log', filemode='a+', level=logging.INFO) # Set up server.log file.
+currentDir = os.getcwd()
+downloads = f"{currentDir}/downloads"
 
 def unicast(username, message):
 
@@ -39,6 +41,8 @@ def clientLeave(client):
 
 def displayFiles(client):
     items = os.listdir("downloads") # Get the list of items in the directory downloads.
+    username = activeClients[client]
+    logging.info(f"{username} viewed the downloadable files.")
     file_list = ''
     for i in items:
         file_list += f"-{i}\n" # Put all items in a string and send it to the client.
@@ -47,9 +51,29 @@ def displayFiles(client):
 
 def downloadFile(message, username, client):
     splitMessage = message.split()
-    fileForDownload = splitMessage[1]
-    os.mkdir(username) # Create a directory for the client's downloaded files.
-    
+    fileForDownload = splitMessage[1] # Get the name of the file for download.
+    filePath = os.path.join(downloads, fileForDownload) # Get the directory of the file for download.
+
+    if os.path.isdir(username): # Check if the directory already exists.
+        pass
+    else:
+        os.mkdir(username) # Create a directory for the client's downloaded files.
+
+# phihag. (2012, January 19). How do I check if a directory exists in python?. Stack Overflow. https://stackoverflow.com/questions/8933237/how-do-i-check-if-a-directory-exists-in-python 
+# Vinod Sharma. (2015, March 18). How to download file from local server in Python. Stack Overflow. https://stackoverflow.com/questions/29110620/how-to-download-file-from-local-server-in-python 
+ 
+    if os.path.exists(filePath): # Check so the progam doesn't break.
+        client.sendall(f"**start** {fileForDownload}".encode('utf-8')) # Indicate that the file transfer is starting
+        with open(filePath, 'rb') as file: # Open file
+            data = file.read(1024) # Read the data inside the file and send all to the client
+            while data:
+                client.sendall(data)
+                data = file.read(1024)
+        client.sendall("**end**".encode('utf-8')) # Indicate that the transfer has ended
+        logging.info(f"{username} downloaded a file: {fileForDownload}")
+    else:
+        client.sendall("That file doesn't exist!".encode('utf-8')) # Error handling
+        logging.error(f"{username} tried to download a file that didn't exist!")
 
 def clientAdd(client, address):
     print(f"Connection from {address}")
@@ -95,15 +119,18 @@ def clientAdd(client, address):
             logging.error(f"{username} has disconnected unexpectedly.") # Check if a user crashed and log it.
             break
 
-        except:
-            errorMessage = "Message failed to send."
-            print(errorMessage)
-            logging.error(f"A message failed to send from {username}")
-            client.sendall(errorMessage.encode('utf-8')) # Handle exceptions by logging it and broadcasting it to the clients.
+        #except:
+          #  errorMessage = "Message failed to send."
+           # print(errorMessage)
+            #logging.error(f"A message failed to send from {username}")
+            #client.sendall(errorMessage.encode('utf-8')) # Handle exceptions by logging it and broadcasting it to the clients.
 
 def main():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        #os.mkdir("downloads") # Initialize downloads folder
+        if os.path.isdir('downloads'):
+            pass
+        else:
+            os.mkdir("downloads") # Initialize downloads folder
         try:
             s.bind(("", port)) # Initialize server at the inputted port.
             print(f"Server has started at {port}") # Print that the server has started and log it in the server.log file.

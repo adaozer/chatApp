@@ -44,6 +44,8 @@ References:
 - Hannu. (2017, June 6). Python sockets - how to shut down the server?. Stack Overflow. https://stackoverflow.com/questions/44387712/python-sockets-how-to-shut-down-the-server 
 - Logging - logging facility for Python. Python documentation. (n.d.-a). https://docs.python.org/3/library/logging.html 
 - Logging howto. Python documentation. (n.d.-b). https://docs.python.org/3/howto/logging.html 
+- phihag. (2012, January 19). How do I check if a directory exists in python?. Stack Overflow. https://stackoverflow.com/questions/8933237/how-do-i-check-if-a-directory-exists-in-python 
 - Raychev, J. P. (2021a, February 19). Building a messaging app with python sockets and threads. Medium. https://python.plainenglish.io/building-a-messaging-app-with-python-sockets-and-threads-continue-b7b344ff6e76 
 - Raychev, J. P. (2021b, November 17). Building a messaging app with python sockets and threads. Medium. https://python.plainenglish.io/building-a-messaging-app-with-python-sockets-and-threads-1c110fc1c8c8 
 - Socket - low-level networking interface. Python documentation. (n.d.-c). https://docs.python.org/3/library/socket.html 
+- Vinod Sharma. (2015, March 18). How to download file from local server in Python. Stack Overflow. https://stackoverflow.com/questions/29110620/how-to-download-file-from-local-server-in-python 

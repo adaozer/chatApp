@@ -1,55 +1,9 @@
-INFO:root:Server started at 8080
-INFO:root:Server was closed.
-INFO:root:Server started at 8080
-INFO:root:Server was closed.
-INFO:root:Server started at 8080
-INFO:root:Server was closed.
-INFO:root:Server started at 8080
-INFO:root:ada joined from the port ('127.0.0.1', 55113)
+CRITICAL:root:Server unable to be bound to 8080
+INFO:root:Server started at 8010
+INFO:root:ada joined from the port ('127.0.0.1', 55107)
 INFO:root:Server broadcasted to the clients that ada joined the server.
-INFO:root:adarrrrrr joined from the port ('127.0.0.1', 55116)
-INFO:root:Server broadcasted to the clients that adarrrrrr joined the server.
-INFO:root:Server was closed.
-INFO:root:Server started at 8080
-INFO:root:ada joined from the port ('127.0.0.1', 51134)
-INFO:root:Server broadcasted to the clients that ada joined the server.
-INFO:root:ersan joined from the port ('127.0.0.1', 51138)
-INFO:root:Server broadcasted to the clients that ersan joined the server.
-INFO:root:Server broadcasted to the clients that ersan left the server.
-INFO:root:ersan left the server.
-INFO:root:ersan joined from the port ('127.0.0.1', 51151)
-INFO:root:Server broadcasted to the clients that ersan joined the server.
-INFO:root:Server broadcasted to the clients that ersan left the server.
-INFO:root:ersan left the server.
-INFO:root:ersan joined from the port ('127.0.0.1', 51481)
-INFO:root:Server broadcasted to the clients that ersan joined the server.
+INFO:root:ada broadcasted a message with the content: hello!
+INFO:root:ada viewed the downloadable files.
+INFO:root:ada broadcasted a message with the content: damn
 INFO:root:Server broadcasted to the clients that ada left the server.
-ERROR:root:ada has disconnected unexpectedly.
-INFO:root:Server broadcasted to the clients that ersan left the server.
-INFO:root:ersan left the server.
-INFO:root:Server started at 8080
-INFO:root:ersan joined from the port ('127.0.0.1', 51731)
-INFO:root:Server broadcasted to the clients that ersan joined the server.
-INFO:root:Server broadcasted to the clients that ersan left the server.
-ERROR:root:ersan has disconnected unexpectedly.
-INFO:root:ersan joined from the port ('127.0.0.1', 52786)
-INFO:root:Server broadcasted to the clients that ersan joined the server.
-INFO:root:ada joined from the port ('127.0.0.1', 52807)
-INFO:root:Server broadcasted to the clients that ada joined the server.
-INFO:root:ada broadcasted a message with the content: selam
-INFO:root:ada broadcasted a message with the content: selam
-INFO:root:ada broadcasted a message with the content: selam
-INFO:root:Server broadcasted to the clients that ersan left the server.
-ERROR:root:ersan has disconnected unexpectedly.
-INFO:root:Server broadcasted to the clients that ada left the server.
-ERROR:root:ada has disconnected unexpectedly.
-INFO:root:ada joined from the port ('127.0.0.1', 52906)
-INFO:root:Server broadcasted to the clients that ada joined the server.
-INFO:root:ada broadcasted a message with the content: selam
-INFO:root:ersan joined from the port ('127.0.0.1', 52931)
-INFO:root:Server broadcasted to the clients that ersan joined the server.
-INFO:root:ersan broadcasted a message with the content: selam
-INFO:root:Server broadcasted to the clients that ada left the server.
-ERROR:root:ada has disconnected unexpectedly.
-INFO:root:Server broadcasted to the clients that ersan left the server.
-ERROR:root:ersan has disconnected unexpectedly.
+INFO:root:ada left the server.
