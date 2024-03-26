@@ -19,4 +19,3 @@ INFO:root:ersan sent a private message to ada with the content: baban
 INFO:root:Server broadcasted to the clients that ada left the server.
 ERROR:root:ada has disconnected unexpectedly.
 INFO:root:Server broadcasted to the clients that ersan left the server.
-ERROR:root:ersan has disconnected unexpectedly.
