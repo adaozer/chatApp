@@ -26,7 +26,6 @@ def unicast(username, message):
     sendUni = username + ": " + messageFinal
     logging.info(f"{username} sent a private message to {receiver} with the content: {messageFinal}") #
     receiverSocket.sendall(sendUni.encode("utf-8")) # Create the final message in the correct format and send it to the recepient.
-
     
 def broadcast(client, message):
     for clients in activeClients:
@@ -141,7 +140,7 @@ def main():
         except:
             print(f"Server unable to be bound to {port}") # Handle errors by printing the necessary information and logging it.
             logging.critical(f"Server unable to be bound to {port}")
-
+            
         s.listen() # Listen for connections.
 
         while True:
